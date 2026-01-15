@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Catálogo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
+      </ion-button>
+      <ion-button class="cart-btn">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+        <ion-badge color="danger">2</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar color="light">
+    <ion-searchbar placeholder="Buscar prendas..." mode="ios" showCancelButton="focus"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="category-filter">
+    <ion-chip 
+      *ngFor="let cat of categorias" 
+      [outline]="categoriaSeleccionada !== cat" 
+      [color]="categoriaSeleccionada === cat ? 'tertiary' : 'medium'"
+      (click)="cambiarCategoria(cat)">
+      <ion-label>{{ cat }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <div class="products-container">
+    <p class="results-text">Mostrando {{ productosFiltrados.length }} resultados</p>
+    
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="6" size-md="4" size-lg="3" *ngFor="let p of productosFiltrados">
+          
+          <ion-card class="product-card" mode="ios">
+            <div class="fav-icon">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+
+            <div class="product-img-container">
+              <img [src]="p.img" *ngIf="p.img" style="width: 100%; height: 100%; object-fit: cover;" />
+              
+              <div class="img-placeholder" *ngIf="!p.img">
+                <span>{{ p.nombre[0] }}</span>
+              </div>
+            </div>
+
+            <ion-card-content>
+              <div class="rating">
+                <ion-icon name="star" color="warning"></ion-icon>
+                <span>{{ p.rating }}</span>
+              </div>
+              <h3 class="product-title">{{ p.nombre }}</h3>
+              <h4 class="product-price">${{ p.precio.toFixed(2) }}</h4>
+
+              <div class="add-btn" (click)="agregarAlCarrito(p)">
+                <ion-icon name="add-outline"></ion-icon>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngIf="productosFiltrados.length === 0" class="empty-state">
+      <p>No se encontraron productos en esta categoría.</p>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,197 @@
+// Variables locales
+$brand-color: #ff6b81; // Un tono rosa/fucsia para la marca Divas
+$bg-light: #f9f9f9;
+
+ion-toolbar {
+  --background: #ffffff;
+  --min-height: 60px;
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+  color: #000;
+  
+  // Opcional: Fuente estilizada si la tienes importada
+  // font-family: 'Playfair Display', serif; 
+}
+
+// Hero Section
+.hero-section {
+  width: 100%;
+  height: 350px;
+  background-color: #eee; /* Color de fondo si no carga la imagen */
+  background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); /* Imagen de ejemplo */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  // Oscurecer un poco la imagen para leer el texto
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.1); 
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+    h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 5px 0 15px 0;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    ion-button {
+      --box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-weight: 600;
+    }
+  }
+}
+
+// Secciones Generales
+.section-container {
+  padding: 20px;
+  background: #fff;
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: $brand-color;
+      font-weight: 500;
+    }
+  }
+}
+
+// Categorías
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .cat-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    overflow: hidden;
+    
+    // Estilo para la letra si no hay imagen
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+  }
+}
+
+// Banner Promocional
+.promo-banner {
+  margin: 10px 20px;
+  padding: 30px 20px;
+  background: linear-gradient(45deg, #000000, #333333);
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+
+  h2 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: $brand-color;
+  }
+  
+  p {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+  }
+}
+
+// Productos (Tendencias)
+.product-card {
+  margin: 0 0 10px 0;
+  box-shadow: none;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+
+  .img-placeholder {
+    width: 100%;
+    height: 140px;
+    background-color: #eee;
+    
+    &.bg-pink { background-color: #ffe0e6; }
+    &.bg-blue { background-color: #e0f0ff; }
+  }
+
+  ion-card-content {
+    padding: 10px;
+    
+    h6 {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    p {
+      margin: 4px 0 0 0;
+      font-weight: 700;
+      color: #000;
+    }
+  }
+}

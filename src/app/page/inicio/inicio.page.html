@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title class="brand-title">FLDivas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="irATienda()">
+        <ion-icon slot="icon-only" name="bag-handle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="hero-section">
+    <div class="hero-content">
+      <h5>NUEVA COLECCIÓN</h5>
+      <h1>Estilo que<br>te define</h1>
+      <p>Descubre las últimas tendencias de la temporada.</p>
+      <ion-button mode="ios" color="dark" (click)="irATienda()">
+        Ver Catálogo <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <div class="section-header">
+      <h3>Categorías</h3>
+      <span (click)="irATienda()">Ver todo</span>
+    </div>
+
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="4" *ngFor="let cat of categorias">
+          <div class="category-card" (click)="irATienda()">
+            <div class="cat-circle" [style.background]="cat.color">
+              <span>{{ cat.nombre[0] }}</span> 
+            </div>
+            <p>{{ cat.nombre }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="promo-banner" (click)="irATienda()">
+    <div class="promo-text">
+      <h2>OFERTA FLASH</h2>
+      <p>50% OFF en la segunda prenda</p>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <h3>Tendencias</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="product-card" (click)="irATienda()">
+            <div class="img-placeholder bg-pink"></div>
+            <ion-card-content>
+              <h6>Top Floral</h6>
+              <p>$25.00</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="product-card" (click)="irATienda()">
+            <div class="img-placeholder bg-blue"></div>
+            <ion-card-content>
+              <h6>Jeans Slim</h6>
+              <p>$45.00</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
